@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>จดหมายให้คนเก่ง 💗</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Itim', cursive;
+  background: linear-gradient(135deg, #ffe4ec, #fff0f5, #fce4ff);
+  color: #8c536b;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 90%;
+  max-width: 440px;
+  margin: 35px auto;
+  padding: 25px 20px;
+  background: rgba(255,255,255,0.86);
+  border: 2px solid white;
+  border-radius: 28px;
+  box-shadow: 0 10px 35px #e6a9c555;
+}
+
+h1 {
+  color: #ed80a9;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.photo-frame {
+  width: 220px;
+  height: 220px;
+  margin: 20px auto;
+  padding: 7px;
+  background: #ffd4e3;
+  border-radius: 25px;
+  transform: rotate(-2deg);
+  box-shadow: 0 5px 15px #e8a8c455;
+}
+
+#photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.upload-label {
+  display: inline-block;
+  background: #fff0f5;
+  border: 1px dashed #ed91b4;
+  border-radius: 20px;
+  padding: 9px 16px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.letter {
+  background: #fff7fa;
+  border-radius: 20px;
+  padding: 18px;
+  margin: 10px 0 20px;
+  text-align: left;
+  line-height: 1.9;
+  font-size: 17px;
+  border: 1px solid #ffe0ec;
+}
+
+.letter h2 {
+  text-align: center;
+  color: #e77fa5;
+  font-size: 23px;
+  margin-top: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 22px;
+  margin: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.main-btn {
+  color: white;
+  background: linear-gradient(135deg, #ff9fbd, #ee82b1);
+  box-shadow: 0 5px 12px #f4b3ce88;
+}
+
+.second-btn {
+  color: #d86d9c;
+  background: #ffedf4;
+}
+
+.footer {
+  font-size: 14px;
+  color: #c58aa4;
+  margin-top: 20px;
+}
+
+/* หน้าต่างข้อความน่ารัก */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #75445b66;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.popup-box {
+  background: white;
+  width: 100%;
+  max-width: 330px;
+  padding: 28px 22px;
+  border-radius: 28px;
+  box-shadow: 0 10px 35px #75445b44;
+  animation: pop 0.35s ease;
+}
+
+.popup-box h2 {
+  color: #ed80a9;
+}
+
+.popup-box p {
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* หัวใจลอย */
+.heart {
+  position: fixed;
+  bottom: -30px;
+  z-index: -1;
+  animation: floatUp 6s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes floatUp {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>💗 สู้ ๆ นะคะคนเก่ง 💗</h1>
+  <p class="subtitle">
+    ถึงนักศึกษาพยาบาลคนโปรดของพี่ 🌷<br>
+    วันนี้พี่มีอะไรอยากบอกหนูด้วยแหละ
+  </p>
+
+  <!-- รูปภาพแฟน: กดเลือกรูปจากเครื่องได้ -->
+  <div class="photo-frame">
+    <img id="photo"
+      src="https://placehold.co/400x400/ffe4ec/e77fa5?text=Your+Cute+Photo"
+      alt="รูปคนเก่งของพี่">
+  </div>
+
+  <label class="upload-label" for="photoInput">
+    📷 เพิ่มรูปของเรา
+  </label>
+  <input type="file" id="photoInput" accept="image/*">
+
+  <div class="letter">
+    <h2>💌 จดหมายฉบับพิเศษ</h2>
+
+    ถึงคนเก่งของพี่ ♡
+
+    <p>
+      ตั้งใจอ่านหนังสือและทำข้อสอบได้เต็มที่เลยนะ
+      พี่รู้ว่าหนูพยายามมามากแค่ไหน
+      ไม่ว่าจะเหนื่อยแค่ไหน หนูก็เก่งมากแล้วนะ 🥺
+    </p>
+
+    <p>
+      ไม่ต้องกดดันตัวเองมากเกินไปนะ
+      ค่อย ๆ อ่าน ค่อย ๆ คิด ทำให้เต็มความสามารถ
+      อย่าลืมพักผ่อน ดื่มน้ำ และกินข้าวด้วยล่ะ
+    </p>
+
+    <p>
+      ต่อให้ผลสอบจะออกมาเป็นยังไง
+      พี่ก็ยังภูมิใจในตัวหนูเสมอ
+      พี่อยู่ข้างหนูนะคะคนเก่ง
+      ส่งกำลังใจไปกอดหนูแน่น ๆ เลย 🫂💗
+    </p>
+
+    <p style="text-align:center; color:#e77fa5;">
+      พี่รักหนูที่สุดเลยนะ<br>
+      — จากคนที่เชียร์และภูมิใจในตัวหนูเสมอ ♡
+    </p>
+  </div>
+
+  <button class="main-btn" onclick="showLove()">
+    💖 กดรับกำลังใจ
+  </button>
+
+  <button class="second-btn" onclick="showRandom()">
+    🐰 ขออีกหนึ่งข้อความ
+  </button>
+
+  <p class="footer">
+    made with love, just for you ♡<br>
+    🌷 หนูทำได้แน่นอน 🌷
+  </p>
+
+</div>
+
+<!-- กล่องป๊อปอัป -->
+<div class="popup" id="popup" onclick="closeOutside(event)">
+  <div class="popup-box">
+    <h2 id="popupTitle">💗 กอดดดด</h2>
+    <p id="popupMessage">ส่งกอดให้คนเก่งหนึ่งที!</p>
+    <button class="main-btn" onclick="closePopup()">
+      รับกอดแล้วงับ 💕
+    </button>
+  </div>
+</div>
+
+<script>
+// เลือกรูปจากมือถือหรือคอมพิวเตอร์
+document.getElementById('photoInput').addEventListener('change',
+  function(event) {
+    const file = event.target.files[0];
+
+    if (file && file.type.startsWith('image/')) {
+      const reader = new FileReader();
+
+      reader.onload = function(e) {
+        document.getElementById('photo').src = e.target.result;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
+);
+
+// ป๊อปอัปกำลังใจ
+function showLove() {
+  document.getElementById('popupTitle').textContent =
+    '💗 ส่งกำลังใจให้แล้ว!';
+
+  document.getElementById('popupMessage').textContent =
+    'หนูเก่งมาก ๆ เลยนะ จุ๊บเหม่งหนึ่งที 😚 ' +
+    'ขอให้ข้อสอบออกตรงที่อ่าน ทำได้ทุกข้อเลย ' +
+    'พี่เชื่อในตัวหนูนะ รักที่สุดเลยยย';
+
+  document.getElementById('popup').style.display = 'flex';
+
+  for (let i = 0; i < 18; i++) {
+    setTimeout(createHeart, i * 100);
+  }
+}
+
+// ข้อความสุ่มให้กำลังใจ
+const messages = [
+  ['🐰 คนเก่งของพี่', 'หายใจลึก ๆ นะ ค่อย ๆ อ่านโจทย์ หนูทำได้แน่นอน!'],
+  ['🌷 อย่าลืมยิ้มนะ', 'เก่งบ้าง พักบ้าง กินข้าวด้วย พี่เป็นห่วงนะ'],
+  ['💖 พี่เชื่อในตัวหนู', 'หนูพยายามมามากแล้ว ภูมิใจในตัวเองได้เลยนะ'],
+  ['🫂 กอดจากทางนี้', 'ถึงตัวจะอยู่ไกล แต่กำลังใจพี่อยู่กับหนูเสมอ'],
+  ['✨ ขอให้โชคดี', 'ขอให้จำได้ทุกเรื่อง เจอแต่ข้อที่อ่านมา สาธุ!'],
+  ['💋 รางวัลของคนเก่ง', 'สอบเสร็จแล้วอย่าลืมให้รางวัลตัวเองด้วยนะ จุ๊บ!']
+];
+
+function showRandom() {
+  const item = messages[Math.floor(Math.random() * messages.length)];
+
+  document.getElementById('popupTitle').textContent = item[0];
+  document.getElementById('popupMessage').textContent = item[1];
+  document.getElementById('popup').style.display = 'flex';
+
+  for (let i = 0; i < 8; i++) {
+    setTimeout(createHeart, i * 120);
+  }
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+function closeOutside(event) {
+  if (event.target.id === 'popup') {
+    closePopup();
+  }
+}
+
+// สร้างหัวใจลอยขึ้นบนจอ
+function createHeart() {
+  const heart = document.createElement('div');
+
+  heart.className = 'heart';
+  heart.textContent = ['💗', '💕', '💖', '🌸', '✨'][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.fontSize = (16 + Math.random() * 22) + 'px';
+  heart.style.animationDuration = (3 + Math.random() * 4) + 's';
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 7000);
+}
+
+// หัวใจลอยเบา ๆ เป็นระยะ
+setInterval(createHeart, 1300);
+</script>
+
+</body>
+</html>
